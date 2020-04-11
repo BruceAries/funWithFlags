@@ -17,16 +17,16 @@ func main() {
 	fmt.Println("Starting point:")
 
 	var (
-		age    int
-		fn, ln string
+		age     int
+		fn, ln  string
+		marital bool
 	)
 
-	
 	pflag.IntVar(&age, "age", 23, "age of person")
 	pflag.StringVar(&fn, "firstName", "atticus", "first name of person")
 	pflag.StringVar(&ln, "lastName", "li", "last name of person")
+	pflag.BoolVar(&marital, "married", true, "marital status")
 	pflag.Parse()
-
 
 	viper.SetConfigName(ConfigFileName)      // name of config file (without extension)
 	viper.SetConfigType(ConfigFileExtension) // REQUIRED if the config file does not have the extension in the name
@@ -48,9 +48,10 @@ func main() {
 	age = viper.GetInt("age")
 	fn = viper.GetString("firstName")
 	ln = viper.GetString("lastName")
+	marital = viper.GetBool("married")
 
 	fmt.Println("Parms:")
-	fmt.Println("--age ", age, "--firstName ", fn, "--lastName ", ln)
+	fmt.Println("--age ", age, "--firstName ", fn, "--lastName ", ln, "--married ", marital)
 
 	if err = viper.WriteConfig(); err != nil {
 		panic(fmt.Errorf("Write config %s", err))
