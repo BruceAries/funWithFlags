@@ -23,10 +23,6 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-
-    - run: |
-        go build -o ~/pig
-        ls ~/pig
     
     -
       name: Set up Docker Buildx
@@ -40,6 +36,7 @@ jobs:
     -
       name: Build and push
       id: docker_build
+      run: go build ./
       uses: docker/build-push-action@v2
       with:
         push: true
