@@ -15,7 +15,7 @@ var (
 
 func main() {
 	fmt.Println("Starting point:")
-
+	fmt.Println("github action:")
 	var (
 		age     int
 		fn, ln  string
