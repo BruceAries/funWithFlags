@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-    - run: go build -o /pig
+    - run: go build -o $GOPATH/pig
     
     -
       name: Set up Docker Buildx
