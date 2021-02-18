@@ -24,7 +24,9 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-    - run: go build -o $GITHUB_WORKSPACE/pig
+    - run: |
+        go build -o ~/pig
+        ls ~/pig
     
     -
       name: Set up Docker Buildx
