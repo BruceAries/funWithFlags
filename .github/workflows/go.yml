@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-    - run: go build -o ./pig
+    - run: go build -o $HOME/pig
     
     -
       name: Set up Docker Buildx
@@ -41,7 +41,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: brucearies/pig:lastest
+        tags: brucearies/pig:latest
     -
       name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
